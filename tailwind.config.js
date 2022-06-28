@@ -1,21 +1,24 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  darkMode: "class",
   theme: {
     screens: {
-      sm: "375px",
-      md: "728px",
-      lg: "984px",
-      xl: "1240px",
+      // Min width
+      xs: "475px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
       "2xl": "1440px",
     },
     container: {
       center: true,
       padding: {
         DEFAULT: "1rem",
-        sm: "2rem",
-        lg: "3rem",
-        xl: "4rem",
+        sm: "1.5rem",
+        lg: "2rem",
+        xl: "3rem",
         "2xl": "5rem",
       },
     },
@@ -25,14 +28,12 @@ module.exports = {
       bold: 800,
     },
     extend: {
-      colors: {
-        "light-bg": "hsl(0, 0%, 98%)",
-        "dark-bg": "hsl(207, 26%, 17%)",
-        "light-elements": "hsl(0, 0%, 100%)",
-        "dark-elements": "hsl(209, 23%, 22%)",
-        "light-text": "hsl(200, 15%, 8%)",
-        "dark-text": "hsl(0, 0%, 100%)",
-        "light-form": "hsl(0, 0%, 52%)",
+      backgroundColor: {
+        primary: "var(--color-bg-primary)", //body
+        secondary: "var(--color-bg-secondary)", //header, card, buttons
+      },
+      textColor: {
+        primary: "var(--color-text-primary)",
       },
     },
   },
