@@ -1,18 +1,22 @@
 // Components
 import Card from "./Card";
+import Form from "./Form";
 
 export default function Home() {
   return (
-    <div className="h-screen bg-primary text-primary">
-      <div className="container flex flex-wrap justify-center gap-[2.5rem] py-5 sm:justify-between sm:gap-[4.375rem]">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+    <div className="bg-primary text-primary">
+      <div className="container">
+        <Form />
+        <div className="flex flex-wrap justify-center gap-[2.5rem] pb-5 sm:justify-between 2xl:gap-[4.375rem]">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </div>
       </div>
     </div>
   );
