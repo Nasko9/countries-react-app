@@ -13,8 +13,7 @@
   }
 }
 
-/* LIght and dark mode global classes */
-
+/* Light and dark mode global classes */
 .light {
   --color-bg-primary: hsl(0, 0%, 98%);
   --color-bg-secondary: hsl(0, 0%, 100%);
