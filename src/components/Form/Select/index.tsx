@@ -1,49 +1,21 @@
-import { useEffect, useRef, useState } from "react";
+// Custom Hook
+import useSelect from "./useSelect";
 
 // Icons
 import { IoChevronDownOutline } from "react-icons/io5";
 
-interface Option {
-  label: string;
-  value: string;
-}
+// Types
+import { Option } from "./Types";
 
-interface Select {
+interface SelectProps {
   name: string;
   defaultValue: string;
   options: Option[];
 }
 
-export default function Select({ name, defaultValue, options }: Select) {
-  const ref = useRef() as React.MutableRefObject<HTMLInputElement>;
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [open, setOpen] = useState<boolean>(false);
-  const [selected, setSelected] = useState<string>("");
-
-  useEffect(() => {
-    const clickOutside = (e: any) => {
-      if (open && ref.current && !ref.current.contains(e.target)) {
-        setOpen(false);
-      }
-    };
-
-    document.addEventListener("click", clickOutside);
-    return () => {
-      document.removeEventListener("click", clickOutside);
-    };
-  }, [open]);
-
-  const handleOpen = () => {
-    setOpen(!open);
-  };
-
-  const handleOptionClick = (option: Option) => {
-    setSelected(option.label);
-
-    if (inputRef.current != null) {
-      inputRef.current.value = option.value;
-    }
-  };
+export default function Select({ name, defaultValue, options }: SelectProps) {
+  const { ref, inputRef, open, selected, handleOpen, handleOptionClick } =
+    useSelect();
 
   return (
     <div
@@ -72,11 +44,11 @@ export default function Select({ name, defaultValue, options }: Select) {
       </div>
 
       {open && (
-        <div className="absolute z-10 mt-1 w-[13.75rem] rounded-lg bg-secondary py-[0.625rem] pl-6 pr-5 shadow-lg">
+        <div className="absolute z-10 mt-1 w-[13.75rem] rounded-lg bg-secondary py-[0.625rem]  shadow-lg">
           {options.map((option) => (
             <div
               key={option.label}
-              className="py-[0.313rem]"
+              className="py-[0.313rem] pl-6 pr-5 hover:bg-primary"
               onClick={() => handleOptionClick(option)}
             >
               {option.label}
