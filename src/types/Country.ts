@@ -1,8 +1,13 @@
 export interface Country {
-  ccn3: string;
-  population: number;
-  name: { common: string };
-  region: string;
-  flags: { svg: string };
+  name: { common: string; official: string; nativeName: Object };
+  tld: string[];
+  cca3: string;
+  currencies: Object;
   capital: string[];
+  region: string;
+  subregion: string;
+  languages: Object;
+  borders: String[];
+  flags: { svg: string };
+  population: number;
 }

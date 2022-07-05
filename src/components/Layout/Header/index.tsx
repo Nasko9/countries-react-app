@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 // Icons
 import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
 
@@ -12,9 +14,11 @@ export default function Header() {
   return (
     <div className="bg-secondary text-primary shadow-lg">
       <div className="container flex justify-between">
-        <div className="py-7 text-lg font-bold sm:text-2xl">
-          Where in the world?
-        </div>
+        <Link to="/">
+          <div className="py-7 text-lg font-bold sm:text-2xl">
+            Where in the world?
+          </div>
+        </Link>
         {darkMode === "light" ? (
           <div className={classes} onClick={() => setDarkMode("dark")}>
             <IoMoonOutline />{" "}

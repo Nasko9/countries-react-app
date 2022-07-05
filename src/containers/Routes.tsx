@@ -1,18 +1,13 @@
-import { Switch, Route } from "react-router-dom";
-
+import { Routes as Switch, Route } from "react-router-dom";
 // Pages
 import Home from "./Home";
 import SingleCountry from "./SingleCountry";
 
-export default function Routes(): any {
+export default function Routes() {
   return (
     <Switch>
-      <Route exact path="/">
-        <Home />
-      </Route>
-      <Route path="/singleCountry">
-        <SingleCountry />
-      </Route>
+      <Route path="/" element={<Home />} />
+      <Route path="/:name" element={<SingleCountry />} />
     </Switch>
   );
 }

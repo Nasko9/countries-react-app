@@ -1,6 +1,8 @@
 // Components
 import Card from "./Card";
 import Form from "./Form";
+
+// Hook
 import useCountries from "./useCountries";
 
 export default function Home() {
@@ -12,7 +14,7 @@ export default function Home() {
         <Form />
         <div className="flex flex-wrap justify-center gap-[2.5rem] pb-5 sm:justify-between 2xl:gap-[4.375rem]">
           {countries.map((country) => (
-            <Card key={country.ccn3} {...country} />
+            <Card key={country.cca3} {...country} />
           ))}
         </div>
       </div>
