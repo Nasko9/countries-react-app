@@ -1,9 +1,9 @@
-interface Input {
+interface InputProps {
   placeholder: string;
   className: string;
 }
 
-export default function Input({ placeholder, className }: Input) {
+export default function Input({ placeholder, className }: InputProps) {
   return (
     <input
       type="text"

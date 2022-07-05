@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+
+// Types
 import { Country } from "../../types/Country";
 
 const url = "https://restcountries.com/v3.1/all";

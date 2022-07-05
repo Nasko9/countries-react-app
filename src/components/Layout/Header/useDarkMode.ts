@@ -16,7 +16,7 @@ export default function useDarkMode() {
     if (typeof window !== "undefined") {
       localStorage.setItem("mode", mode);
     }
-  }, [darkMode]);
+  }, [mode, darkMode]);
 
   return { darkMode, setDarkMode };
 }

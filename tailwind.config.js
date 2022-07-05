@@ -4,13 +4,12 @@ module.exports = {
   darkMode: "class",
   theme: {
     screens: {
-      // Min width
-      xs: "475px",
-      sm: "640px",
-      md: "768px",
-      lg: "1024px",
-      xl: "1280px",
-      "2xl": "1440px",
+      xs: "475px", //auto margin 1rem
+      sm: "640px", //592px container
+      md: "768px", //720px container
+      lg: "1024px", //960px container
+      xl: "1280px", //1184px container
+      "2xl": "1440px", //1280px container
     },
     container: {
       center: true,
