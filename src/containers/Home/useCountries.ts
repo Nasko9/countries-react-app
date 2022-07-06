@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
 
+// API
+import axios from "../../api/axiosInstance";
+
 // Types
 import { Country } from "../../types/Country";
 
-const url = "https://restcountries.com/v3.1/all";
-
 export default function useCountries() {
   const [countries, setCountries] = useState<Country[]>([]);
-  //   const [loading, setLoading] = useState(true);
-  //   const [error, setError] = useState(null);
 
   useEffect(() => {
-    async function getData() {
-      await fetch(url)
-        .then((response) => response.json())
-        .then((data) => setCountries(data));
-    }
-
-    getData();
+    (async function () {
+      try {
+        let url = `all`;
+        const { data: countries } = await axios.get(url);
+        setCountries(countries);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
   }, []);
 
   return { countries };
