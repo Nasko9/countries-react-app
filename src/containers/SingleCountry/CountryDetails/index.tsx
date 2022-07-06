@@ -17,7 +17,7 @@ export default function CountryDetails({
   const { getCurrency, getNativeName, getLanguages } = useCountryDetails();
 
   return (
-    <div className="h-96lg:w-[30rem] xl:w-[35rem] 2xl:w-[40rem]">
+    <div className="lg:w-[30rem] xl:w-[35rem] 2xl:w-[40rem]">
       <h1 className="text-3xl font-bold">{name}</h1>
       <div className="mt-5 flex flex-wrap justify-between">
         <div className="mt-4 flex flex-col gap-4">

@@ -13,13 +13,11 @@ export default function Card({
   return (
     <Link to={`/${cca3}`}>
       <div className="h-80 w-[15.625rem] select-none rounded-lg bg-secondary shadow-lg">
-        {/* <div className="h-[9.375rem] rounded-t-lg"> */}
         <img
           src={flags.svg}
           alt="flag"
           className="h-[9.375rem] w-[15.625rem] rounded-t-lg object-cover"
         />
-        {/* </div> */}
 
         <div className="h-[10.625rem] rounded-b-lg px-[1.375rem] pt-[1rem]">
           <h1 className="mb-[0.688rem] text-lg font-bold">{name.common}</h1>
