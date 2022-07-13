@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 // API
 import axios from "../../api/axiosInstance";
@@ -10,6 +10,7 @@ import { Country } from "../../types/Country";
 export default function useSingleCountry() {
   const [country, setCountry] = useState<Country[]>([]);
   const { name }: any = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async function () {
@@ -18,7 +19,7 @@ export default function useSingleCountry() {
         const { data: country } = await axios.get(url);
         setCountry(country);
       } catch (error) {
-        console.log(error);
+        navigate("/");
       }
     })();
   }, [name]);
