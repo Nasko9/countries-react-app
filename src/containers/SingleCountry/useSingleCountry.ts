@@ -22,7 +22,7 @@ export default function useSingleCountry() {
         navigate("/");
       }
     })();
-  }, [name]);
+  }, [name, navigate]);
 
   return { country };
 }
