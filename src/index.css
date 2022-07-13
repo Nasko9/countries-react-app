@@ -25,3 +25,10 @@
   --color-bg-secondary: hsl(209, 23%, 22%);
   --color-text-primary: hsl(0, 0%, 100%);
 }
+
+
+/* .cards-section::after {
+  content: "";
+  flex: auto;
+  gap: 2.5rem;
+} */

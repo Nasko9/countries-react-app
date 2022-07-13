@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // API
 import axios from "../../api/axiosInstance";
@@ -12,6 +13,7 @@ import { Country } from "../../types/Country";
 export default function useCountries() {
   const [countries, setCountries] = useState<Country[]>([]);
   const { query, select } = useContext(SearchContext) as SearchType;
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async function () {
@@ -29,10 +31,10 @@ export default function useCountries() {
         const { data: countries } = await axios.get(url);
         setCountries(countries);
       } catch (error) {
-        console.log(error);
+        navigate("/");
       }
     })();
-  }, [query, select]);
+  }, [query, select, navigate]);
 
   return { countries };
 }

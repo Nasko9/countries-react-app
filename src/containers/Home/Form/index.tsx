@@ -13,7 +13,7 @@ const options = [
 
 export default function Form() {
   return (
-    <div className="flex flex-wrap justify-start gap-[2.5rem] py-[2.75rem] sm:justify-between">
+    <div className="flex flex-wrap justify-start gap-[2.5rem] py-[2.75rem] xs:mx-24 sm:mx-0 sm:justify-between">
       <Search />
 
       <Select
