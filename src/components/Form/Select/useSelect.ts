@@ -1,4 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
+
+// Context
+import {
+  SearchContext,
+  SearchType,
+} from "../../../containers/Home/SearchContext";
 
 // Types
 import { Option } from "./Types";
@@ -8,6 +14,7 @@ export default function useSelect() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [open, setOpen] = useState<boolean>(false);
   const [selected, setSelected] = useState<string>("");
+  const { selectHandler } = useContext(SearchContext) as SearchType;
 
   useEffect(() => {
     const clickOutside = (e: any) => {
@@ -32,6 +39,8 @@ export default function useSelect() {
     if (inputRef.current != null) {
       inputRef.current.value = option.value;
     }
+
+    selectHandler(option.value);
   };
 
   return {

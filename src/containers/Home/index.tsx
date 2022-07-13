@@ -5,16 +5,14 @@ import Skeleton from "./Skeleton";
 
 // Hook
 import useCountries from "./useCountries";
-import useForm from "./Form/useForm";
 
 export default function Home() {
-  const { inputHandler, query } = useForm();
-  const { countries } = useCountries({ query });
+  const { countries } = useCountries();
 
   return (
     <div className="bg-primary text-primary">
       <div className="container">
-        <Form inputHandler={inputHandler} />
+        <Form />
         <div className="flex flex-wrap justify-center gap-[2.5rem] pb-5 sm:justify-between 2xl:gap-[4.375rem]">
           {countries &&
             countries.map((country) => (

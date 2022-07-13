@@ -2,20 +2,20 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 // Layout
 import Header from "./components/Layout/Header";
-import ReactQuryProviders from "./components/Providers/ReactQueryProvider";
+import SearchContextProvider from "./containers/Home/SearchContext";
 
 // Routes
 import Routes from "./containers/Routes";
 
 function App() {
   return (
-    <div className="App">
-      <ReactQuryProviders>
+    <div className="App h-screen bg-primary">
+      <SearchContextProvider>
         <Router>
           <Header />
           <Routes />
         </Router>
-      </ReactQuryProviders>
+      </SearchContextProvider>
     </div>
   );
 }
