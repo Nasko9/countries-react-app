@@ -1,10 +1,13 @@
+import { useContext } from "react";
 // Icons
 import { IoSearchSharp } from "react-icons/io5";
 
-// Types
-import { InputProps } from "../Types";
+// Context
+import { SearchContext, SearchType } from "../../SearchContext";
 
-export default function Search({ inputHandler }: InputProps) {
+export default function Search() {
+  const { inputHandler } = useContext(SearchContext) as SearchType;
+
   return (
     <div className="flex rounded-lg bg-secondary shadow-lg lg:w-[28.125rem]">
       <div className="flex items-center px-6">
