@@ -1,22 +1,29 @@
 import { useEffect, useState } from "react";
 
 export default function useDarkMode() {
-  const localStorageMode = localStorage.getItem("mode");
-
-  const [darkMode, setDarkMode] = useState<string>(localStorageMode || "light");
-
-  const mode = darkMode === "dark" ? "light" : "dark";
+  const [darkMode, setDarkMode] = useState<string>("light");
 
   useEffect(() => {
-    const root = window.document.documentElement;
+    const root = document.querySelector("html");
 
-    root.classList.remove(mode);
-    root.classList.add(darkMode || "");
-
-    if (typeof window !== "undefined") {
-      localStorage.setItem("mode", mode);
+    if (localStorage.getItem("mode") === "dark") {
+      root?.classList.add("dark");
+      setDarkMode("dark");
+    } else {
+      root?.classList.remove("dark");
+      setDarkMode("light");
     }
-  }, [mode, darkMode]);
+  }, [darkMode]);
 
-  return { darkMode, setDarkMode };
+  const handleModeSwitch = () => {
+    if (localStorage.getItem("mode") === "light") {
+      setDarkMode("dark");
+      localStorage.setItem("mode", "dark");
+    } else {
+      setDarkMode("light");
+      localStorage.setItem("mode", "light");
+    }
+  };
+
+  return { darkMode, handleModeSwitch };
 }

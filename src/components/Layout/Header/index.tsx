@@ -9,8 +9,8 @@ import useDarkMode from "./useDarkMode";
 const classes = "flex select-none items-center cursor-pointer";
 
 export default function Header() {
-  const { darkMode, setDarkMode } = useDarkMode();
-
+  const { darkMode, handleModeSwitch } = useDarkMode();
+  console.log(darkMode);
   return (
     <div className="bg-secondary text-primary shadow-lg">
       <div className="container flex justify-between">
@@ -20,14 +20,14 @@ export default function Header() {
           </div>
         </Link>
         {darkMode === "light" ? (
-          <div className={classes} onClick={() => setDarkMode("dark")}>
+          <div className={classes} onClick={() => handleModeSwitch()}>
             <IoMoonOutline />{" "}
             <span className="ml-2 text-sm font-semibold sm:text-base">
               Dark Mode
             </span>
           </div>
         ) : (
-          <div className={classes} onClick={() => setDarkMode("light")}>
+          <div className={classes} onClick={() => handleModeSwitch()}>
             <IoSunnyOutline />{" "}
             <span className="ml-2 text-sm font-semibold sm:text-base">
               Light Mode
